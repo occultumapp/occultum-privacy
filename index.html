@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occultum — Política de Privacidade</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        .header {
+            background: linear-gradient(135deg, #0d2b2b 0%, #1a4a4a 50%, #0f3333 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header img {
+            height: 60px;
+            margin-bottom: 16px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .header p {
+            color: #80cbc4;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        .nav {
+            background: #0d2b2b;
+            text-align: center;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav a {
+            color: #80cbc4;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav a:hover, .nav a.active { color: #fff; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
+        }
+        .card h2 {
+            color: #0d2b2b;
+            font-size: 24px;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #80cbc4;
+        }
+        .card .update {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+        .card h3 {
+            color: #1a4a4a;
+            font-size: 17px;
+            margin: 28px 0 10px;
+        }
+        .card p {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .card ul {
+            margin: 8px 0 14px 24px;
+            font-size: 15px;
+        }
+        .card ul li { margin-bottom: 6px; }
+        .highlight {
+            background: #e0f2f1;
+            border-left: 4px solid #00897b;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .contact-box {
+            background: #f0f0f0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .contact-box a { color: #00897b; font-weight: 600; }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 13px;
+        }
+        .footer img { height: 40px; margin-bottom: 8px; }
+        .section-hidden { display: none; }
+
+        @media (max-width: 600px) {
+            .card { padding: 24px 18px; }
+            .nav a { margin: 0 8px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="logo.jpg" alt="R. Teixeira Design & Dev">
+    <h1>OCCULTUM</h1>
+    <p>Mensageiro com criptografia ponta a ponta</p>
+</div>
+
+<div class="nav">
+    <a href="#" onclick="showSection('privacy')" id="nav-privacy" class="active">Política de Privacidade</a>
+    <a href="#" onclick="showSection('terms')" id="nav-terms">Termos de Uso</a>
+</div>
+
+<div class="container">
+
+    <!-- ═══════════ POLÍTICA DE PRIVACIDADE ═══════════ -->
+    <div id="section-privacy">
+        <div class="card">
+            <h2>Política de Privacidade</h2>
+            <p class="update">Última atualização: 13 de julho de 2026</p>
+
+            <p>O <strong>Occultum</strong> é um aplicativo de mensagens com criptografia ponta a ponta, desenvolvido por <strong>R. Teixeira · Design & Dev</strong>. Esta Política de Privacidade explica quais informações coletamos, como as usamos e quais são seus direitos.</p>
+
+            <h3>1. Informações que coletamos</h3>
+
+            <p><strong>a) Informações de conta</strong></p>
+            <p>Coletamos seu endereço de email (via Google Sign-In) exclusivamente para autenticação. Você também escolhe uma tag pública (<code>@usuario</code>) como identidade no aplicativo.</p>
+
+            <p><strong>b) Mensagens e mídia</strong></p>
+            <p>Todas as mensagens de texto, áudios, imagens, vídeos e documentos são cifrados ponta a ponta utilizando HPKE (Hybrid Public Key Encryption) antes de sair do seu dispositivo. O servidor atua apenas como intermediário temporário — as mensagens são automaticamente excluídas em até 24 horas.</p>
+
+            <p><strong>c) Publicidade (Stories)</strong></p>
+            <p>Ao visualizar Stories com anúncios, nosso SDK parceiro de publicidade pode coletar: identificador de publicidade (GAID), endereço IP, modelo do dispositivo e dados de interação com anúncios. Estes dados são processados pelo parceiro conforme sua própria política de privacidade. Você pode desativar anúncios personalizados nas Configurações do app.</p>
+
+            <p><strong>d) Chave PIX</strong></p>
+            <p>Quando você informa sua chave PIX para recebimento de receita de anúncios, ela é armazenada localmente no seu dispositivo de forma cifrada (SQLCipher). A chave é utilizada exclusivamente pela plataforma para efetuar o pagamento ao usuário e não é compartilhada com terceiros.</p>
+
+            <p><strong>e) Chamadas de voz</strong></p>
+            <p>As chamadas utilizam conexão direta ponto a ponto via WebRTC. O áudio da chamada não passa pelos nossos servidores.</p>
+
+            <p><strong>f) Dados técnicos</strong></p>
+            <p>Coletamos tokens de push (FCM) para entrega de notificações. Não coletamos localização, contatos do dispositivo nem dados de navegação.</p>
+
+            <h3>2. Base legal para tratamento (LGPD)</h3>
+            <ul>
+                <li><strong>Mensagens e conta:</strong> execução de contrato (Art. 7, V).</li>
+                <li><strong>Publicidade:</strong> interesse legítimo (Art. 7, IX) com opt-out disponível.</li>
+                <li><strong>Chave PIX:</strong> consentimento do titular (Art. 7, I) — fornecida voluntariamente.</li>
+            </ul>
+
+            <h3>3. Compartilhamento de dados</h3>
+            <ul>
+                <li><strong>Parceiro de publicidade:</strong> dados de anúncios (GAID, IP, interações) — com opt-out.</li>
+                <li><strong>Conteúdo de mensagens:</strong> NUNCA compartilhado — cifrado ponta a ponta.</li>
+                <li><strong>Chave PIX:</strong> não compartilhada com terceiros.</li>
+                <li>Não vendemos dados pessoais a terceiros.</li>
+            </ul>
+
+            <h3>4. Armazenamento e segurança</h3>
+            <div class="highlight">
+                <strong>Criptografia em múltiplas camadas:</strong><br>
+                • Mensagens no servidor: excluídas automaticamente em 24h<br>
+                • Banco de dados local: cifrado com SQLCipher (AES-256)<br>
+                • Mídia: cifrada com AES-256-GCM antes do upload<br>
+                • Chave PIX: armazenada cifrada localmente
+            </div>
+
+            <h3>5. Seus direitos (LGPD, Art. 18)</h3>
+            <p>Você tem direito a:</p>
+            <ul>
+                <li>Confirmar a existência de tratamento de dados</li>
+                <li>Acessar seus dados</li>
+                <li>Corrigir dados incompletos ou desatualizados</li>
+                <li>Solicitar exclusão de dados pessoais</li>
+                <li>Revogar consentimento para anúncios personalizados</li>
+                <li>Portabilidade (quando aplicável)</li>
+            </ul>
+
+            <h3>6. Retenção de dados</h3>
+            <ul>
+                <li><strong>Mensagens:</strong> 24h no servidor / indefinido no dispositivo até exclusão pelo usuário</li>
+                <li><strong>Dados de ads:</strong> conforme política do parceiro de publicidade</li>
+                <li><strong>Chave PIX:</strong> até remoção pelo usuário ou desinstalação do app</li>
+            </ul>
+
+            <h3>7. Crianças</h3>
+            <p>O Occultum não é direcionado a menores de 13 anos. Funcionalidades de saque de receita exigem maioridade (18 anos).</p>
+
+            <h3>8. Alterações</h3>
+            <p>Esta política pode ser atualizada periodicamente. A data da última atualização será exibida no topo desta página.</p>
+
+            <h3>9. Contato</h3>
+            <div class="contact-box">
+                <p>Para dúvidas sobre privacidade e proteção de dados:</p>
+                <p>📧 <a href="mailto:occultumapp@gmail.com">occultumapp@gmail.com</a></p>
+                <p>R. Teixeira · Design & Dev</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ TERMOS DE USO ═══════════ -->
+    <div id="section-terms" class="section-hidden">
+        <div class="card">
+            <h2>Termos de Uso</h2>
+            <p class="update">Última atualização: 13 de julho de 2026</p>
+
+            <h3>1. Aceitação</h3>
+            <p>Ao usar o Occultum, você concorda com estes termos. Se não concordar, não utilize o aplicativo.</p>
+
+            <h3>2. Descrição do serviço</h3>
+            <p>O Occultum é um aplicativo de mensagens com criptografia ponta a ponta e funcionalidade de Stories com anúncios remunerados. O serviço é fornecido "como está", sem garantias de disponibilidade contínua.</p>
+
+            <h3>3. Conta e responsabilidade</h3>
+            <p>Você é responsável pela segurança da sua conta e senha, e por todo conteúdo enviado através da sua conta.</p>
+
+            <h3>4. Uso aceitável</h3>
+            <p>É <strong>proibido</strong> usar o Occultum para:</p>
+            <ul>
+                <li>Envio de spam ou mensagens em massa</li>
+                <li>Distribuição de malware ou conteúdo ilegal</li>
+                <li>Assédio, ameaças ou discurso de ódio</li>
+                <li>Violação de direitos autorais de terceiros</li>
+                <li>Fraude ou uso de identidade falsa para saques</li>
+                <li>Qualquer atividade ilegal sob as leis aplicáveis</li>
+            </ul>
+
+            <h3>5. Anúncios e remuneração</h3>
+            <p>O Occultum exibe anúncios opcionais nos Stories. Usuários que assistem aos anúncios acumulam créditos que podem ser sacados via PIX para a chave cadastrada. A plataforma efetua o pagamento. Saques estão sujeitos a valor mínimo e verificação de identidade. Você pode desativar anúncios personalizados nas Configurações.</p>
+
+            <h3>6. Chave PIX</h3>
+            <p>O usuário é responsável por fornecer uma chave PIX válida e de sua titularidade. O Occultum não se responsabiliza por pagamentos enviados a chaves incorretas informadas pelo usuário.</p>
+
+            <h3>7. Conteúdo do usuário</h3>
+            <p>Você retém a propriedade de todo conteúdo que envia. O Occultum não monitora, modera nem armazena permanentemente suas mensagens. A criptografia ponta a ponta impede que tenhamos acesso ao conteúdo.</p>
+
+            <h3>8. Propriedade intelectual</h3>
+            <p>O nome "Occultum", logotipos, design e código-fonte são propriedade de R. Teixeira · Design & Dev. Stickers importados pelo usuário são de responsabilidade do próprio usuário quanto a direitos autorais.</p>
+
+            <h3>9. Limitação de responsabilidade</h3>
+            <p>O Occultum não se responsabiliza por:</p>
+            <ul>
+                <li>Perda de mensagens (dados efêmeros por design)</li>
+                <li>Conteúdo enviado por outros usuários</li>
+                <li>Indisponibilidade temporária do serviço</li>
+                <li>Atrasos em pagamentos de receita de anúncios</li>
+            </ul>
+
+            <h3>10. Encerramento</h3>
+            <p>Reservamo-nos o direito de encerrar contas que violem estes termos.</p>
+
+            <h3>11. Alterações</h3>
+            <p>Estes termos podem ser atualizados. O uso continuado após alterações constitui aceitação.</p>
+
+            <h3>12. Contato</h3>
+            <div class="contact-box">
+                <p>📧 <a href="mailto:occultumapp@gmail.com">occultumapp@gmail.com</a></p>
+                <p>R. Teixeira · Design & Dev</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <img src="logo.jpg" alt="R. Teixeira"><br>
+    © 2026 R. Teixeira · Design & Dev — Todos os direitos reservados.
+</div>
+
+<script>
+function showSection(section) {
+    document.getElementById('section-privacy').classList.toggle('section-hidden', section !== 'privacy');
+    document.getElementById('section-terms').classList.toggle('section-hidden', section !== 'terms');
+    document.getElementById('nav-privacy').classList.toggle('active', section === 'privacy');
+    document.getElementById('nav-terms').classList.toggle('active', section === 'terms');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
