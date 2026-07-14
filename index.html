@@ -158,8 +158,11 @@
             <p><strong>e) Chamadas de voz</strong></p>
             <p>As chamadas utilizam conexão direta ponto a ponto via WebRTC. O áudio da chamada não passa pelos nossos servidores.</p>
 
-            <p><strong>f) Dados técnicos</strong></p>
-            <p>Coletamos tokens de push (FCM) para entrega de notificações. Não coletamos localização, contatos do dispositivo nem dados de navegação.</p>
+            <p><strong>f) Contatos</strong></p>
+            <p>Caso você conceda a permissão de acesso aos contatos do dispositivo, o Occultum pode sincronizar essa lista de contatos com o Google Drive vinculado à sua conta Google, para ajudar a encontrar amigos que já usam o aplicativo. Essa sincronização é armazenada na sua própria conta do Google Drive e não é acessada por nós para nenhuma outra finalidade. Esta permissão é <strong>opcional</strong> — você pode negá-la e continuar usando o aplicativo normalmente, adicionando contatos manualmente por tag (@usuario) ou QR code.</p>
+
+            <p><strong>g) Dados técnicos</strong></p>
+            <p>Coletamos tokens de push (FCM) para entrega de notificações. Não coletamos dados de localização nem de navegação.</p>
 
             <h3>2. Base legal para tratamento (LGPD)</h3>
             <ul>
@@ -172,6 +175,7 @@
             <ul>
                 <li><strong>Parceiro de publicidade:</strong> dados de anúncios (GAID, IP, interações) — com opt-out.</li>
                 <li><strong>Conteúdo de mensagens:</strong> NUNCA compartilhado — cifrado ponta a ponta.</li>
+                <li><strong>Contatos:</strong> armazenados no seu próprio Google Drive (conta pessoal do usuário); não são transferidos a nós nem a terceiros.</li>
                 <li><strong>Chave PIX:</strong> não compartilhada com terceiros.</li>
                 <li>Não vendemos dados pessoais a terceiros.</li>
             </ul>
@@ -199,6 +203,7 @@
             <h3>6. Retenção de dados</h3>
             <ul>
                 <li><strong>Mensagens:</strong> 24h no servidor / indefinido no dispositivo até exclusão pelo usuário</li>
+                <li><strong>Contatos:</strong> mantidos no seu Google Drive até você revogar a permissão ou removê-los</li>
                 <li><strong>Dados de ads:</strong> conforme política do parceiro de publicidade</li>
                 <li><strong>Chave PIX:</strong> até remoção pelo usuário ou desinstalação do app</li>
             </ul>
@@ -310,7 +315,8 @@
 
             <div class="highlight">
                 <strong>O que é excluído e em quanto tempo:</strong><br>
-                &bull; <strong>Dados no dispositivo</strong> (mensagens, contatos, chave privada, mídia): apagados <strong>imediatamente</strong> ao desinstalar o app<br>
+                &bull; <strong>Dados no dispositivo</strong> (mensagens, contatos salvos localmente, chave privada, mídia): apagados <strong>imediatamente</strong> ao desinstalar o app<br>
+                &bull; <strong>Contatos sincronizados no Google Drive</strong>: permanecem na sua própria conta Google até você revogar a permissão de acesso ou apagá-los manualmente<br>
                 &bull; <strong>Conta (email, tag pública, chave pública)</strong>: apagada em até <strong>30 dias</strong> após solicitação por email<br>
                 &bull; <strong>Mensagens em trânsito no servidor</strong>: excluídas automaticamente em até <strong>24 horas</strong>, mesmo sem nenhuma ação do usuário (são efêmeras por design)<br>
                 &bull; <strong>Chave PIX cadastrada</strong>: apagada junto com a conta<br>
