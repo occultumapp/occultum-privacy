@@ -127,7 +127,7 @@
 
 <div class="nav">
     <a href="#" onclick="showSection('privacy')" id="nav-privacy" class="active">Política de Privacidade</a>
-    <a href="#" <a href="#" onclick="showSection('terms')" id="nav-terms">Termos de Uso</a>
+    <a href="#" onclick="showSection('terms')" id="nav-terms">Termos de Uso</a>
     <a href="#" onclick="showSection('delete')" id="nav-delete">Excluir Conta</a>
 </div>
 
@@ -348,10 +348,16 @@ function showSection(section) {
 }
 
 // Permite abrir direto numa aba via #privacy, #terms ou #delete na URL
-window.addEventListener('DOMContentLoaded', () => {
+function abrirPelaHash() {
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'terms' || hash === 'delete') showSection(hash);
-});
+    if (hash === 'terms' || hash === 'delete' || hash === 'privacy') showSection(hash);
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', abrirPelaHash);
+} else {
+    abrirPelaHash();
+}
+window.addEventListener('hashchange', abrirPelaHash);
 </script>
 </body>
 </html>
