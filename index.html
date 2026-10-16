@@ -137,7 +137,7 @@
     <div id="section-privacy">
         <div class="card">
             <h2>Política de Privacidade</h2>
-            <p class="update">Última atualização: 13 de julho de 2026</p>
+            <p class="update">Última atualização: 15 de outubro de 2026</p>
 
             <p>O <strong>Occultum</strong> é um aplicativo de mensagens com criptografia ponta a ponta, desenvolvido por <strong>R. Teixeira · Design & Dev</strong>. Esta Política de Privacidade explica quais informações coletamos, como as usamos e quais são seus direitos.</p>
 
@@ -146,14 +146,22 @@
             <p><strong>a) Informações de conta</strong></p>
             <p>Coletamos seu endereço de email (via Google Sign-In) exclusivamente para autenticação. Você também escolhe uma tag pública (<code>@usuario</code>) como identidade no aplicativo.</p>
 
-            <p><strong>b) Mensagens e mídia</strong></p>
-            <p>Todas as mensagens de texto, áudios, imagens, vídeos e documentos são cifrados ponta a ponta utilizando HPKE (Hybrid Public Key Encryption) antes de sair do seu dispositivo. O servidor atua apenas como intermediário temporário — as mensagens são automaticamente excluídas em até 24 horas.</p>
+            <p><strong>b) Mensagens e mídia (conversas privadas e grupos)</strong></p>
+            <p>As mensagens de texto e o conteúdo de áudios, imagens, vídeos e documentos são cifrados ponta a ponta antes de sair do seu dispositivo (HPKE para as chaves e AES-256-GCM para os arquivos). O servidor atua apenas como intermediário temporário — as mensagens são automaticamente excluídas em até 24 horas.</p>
+            <p>Os arquivos cifrados enviados em conversas são armazenados no <strong>Google Drive da conta de quem envia</strong> (acesso limitado aos arquivos criados pelo próprio Occultum), e não em nossos servidores. O destinatário recebe a chave de decifragem por meio da própria mensagem cifrada. O app agenda a limpeza desses arquivos no Drive do remetente após a entrega.</p>
+            <p><strong>Metadados da mídia:</strong> o conteúdo do arquivo é cifrado, mas o registro técnico (manifesto) que acompanha o envio fica no Firebase em formato legível por nós: tipo do arquivo (MIME), tamanho, quantidade de partes e os participantes da conversa. Esse registro tem prazo de expiração e é excluído junto com a mensagem.</p>
 
-            <p><strong>c) Stories Remunerados e Publicidade</strong></p>
-            <p>O Occultum oferece Stories Remunerados: ao postar um Story, você acumula ganhos a cada visualização dos seus contatos. Os Stories contêm anúncios fornecidos por nosso SDK parceiro de publicidade, que pode coletar: identificador de publicidade (GAID), endereço IP, modelo do dispositivo e dados de interação com anúncios. Estes dados são processados pelo parceiro conforme sua própria política de privacidade. Você pode desativar anúncios personalizados nas Configurações do app.</p>
+            <p><strong>c) Stories, Stories Remunerados e Publicidade</strong></p>
+            <p><strong>Stories não são cifrados ponta a ponta.</strong> O vídeo ou a foto de um Story é enviado ao <strong>Microsoft OneDrive da conta de quem posta</strong> (você conecta sua conta Microsoft no app), e um link de acesso é registrado no Firebase, junto com sua tag, legenda e horário de expiração, para que seus contatos possam assistir por 24 horas. Para permitir a exibição aos espectadores, nosso servidor guarda a autorização (token de atualização) da sua conta Microsoft, usada apenas para gerar o acesso de streaming dos seus próprios Stories. Esse conteúdo é tratado pela Microsoft conforme a política dela.</p>
+            <p>Ao postar um Story Remunerado, você acumula ganhos a cada visualização dos seus contatos. As visualizações exibem anúncios entregues por <strong>Google AdMob</strong>, com mediação das redes <strong>Liftoff (Vungle)</strong> e <strong>Meta Audience Network</strong>. Esses SDKs podem coletar: identificador de publicidade (GAID), endereço IP, modelo do dispositivo e dados de interação com anúncios. Os dados são processados por cada empresa conforme a sua própria política de privacidade. Você pode redefinir ou apagar o identificador de publicidade nas configurações do Android (Configurações &gt; Google &gt; Anúncios), o que limita a personalização.</p>
 
-            <p><strong>d) Chave PIX</strong></p>
-            <p>Quando você informa sua chave PIX para recebimento de receita de anúncios, ela é armazenada localmente no seu dispositivo de forma cifrada (SQLCipher). A chave é utilizada exclusivamente pela plataforma para efetuar o pagamento ao usuário e não é compartilhada com terceiros.</p>
+            <p><strong>c1) Sala Pública (Deep Room Público)</strong></p>
+            <p>A Sala Pública é um espaço aberto a todos os usuários do Occultum. Você participa por padrão e pode sair a qualquer momento pelo menu da sala. Ao compartilhar um Story na sala, você torna <strong>público para qualquer usuário</strong> o seu Story, a sua @tag, a sua foto de perfil, um símbolo escolhido e a legenda (até 120 caracteres). Esse conteúdo <strong>não é cifrado</strong> e é removido quando o Story expira (24 horas) ou é apagado.</p>
+            <p><strong>Denúncias e bloqueios:</strong> para moderação, ao denunciar um cartão guardamos a identificação do cartão, o identificador da conta denunciante, a sua tag, o motivo escolhido e a data. Contas banidas da sala têm o identificador registrado para impedir novo compartilhamento. O moderador pode remover cartões e Stories compartilhados na sala. A lista de contas que você bloqueou é usada para ocultar o conteúdo delas.</p>
+
+            <p><strong>d) Dados para monetização (Stories Remunerados)</strong></p>
+            <p>Para habilitar o recebimento de receita, coletamos: <strong>chave PIX</strong>, <strong>CPF</strong>, <strong>nome completo</strong> e <strong>data de nascimento</strong> (para confirmar que você tem 18 anos ou mais). Você também cria uma <strong>senha de saque</strong> própria, usada apenas para confirmar pedidos de saque — armazenamos apenas um hash criptográfico dela (bcrypt), nunca a senha em texto puro.</p>
+            <p>Diferente das mensagens (que nunca tocam nosso servidor de forma legível), esses dados de monetização ficam armazenados em um banco de dados no nosso servidor, protegido por acesso restrito e autenticação — não ficam apenas no seu dispositivo. Não compartilhamos CPF, chave PIX, nome completo ou data de nascimento com o parceiro de publicidade nem com nenhum outro terceiro; são usados exclusivamente para calcular e efetuar o pagamento da sua receita.</p>
 
             <p><strong>e) Chamadas de voz</strong></p>
             <p>As chamadas utilizam conexão direta ponto a ponto via WebRTC. O áudio da chamada não passa pelos nossos servidores.</p>
@@ -161,22 +169,28 @@
             <p><strong>f) Contatos</strong></p>
             <p>Caso você conceda a permissão de acesso aos contatos do dispositivo, o Occultum pode sincronizar essa lista de contatos com o Google Drive vinculado à sua conta Google, para ajudar a encontrar amigos que já usam o aplicativo. Essa sincronização é armazenada na sua própria conta do Google Drive e não é acessada por nós para nenhuma outra finalidade. Esta permissão é <strong>opcional</strong> — você pode negá-la e continuar usando o aplicativo normalmente, adicionando contatos manualmente por tag (@usuario) ou QR code.</p>
 
-            <p><strong>g) Dados técnicos</strong></p>
-            <p>Coletamos tokens de push (FCM) para entrega de notificações. Não coletamos dados de localização nem de navegação.</p>
+            <p><strong>g) Dados técnicos e provedores de infraestrutura</strong></p>
+            <p>Usamos o Google Firebase (autenticação, banco de dados Firestore, verificação de integridade do app via Play Integrity/App Check e notificações push FCM, que envolvem um token do aparelho). Também operamos servidores próprios, em nuvem, para presença e confirmação de entrega, grupos (Deep Room), carteira de monetização e sinalização de chamadas, além de um serviço para reserva de tags de usuário. Não coletamos dados de localização nem de navegação, e o app não usa SDKs de análise de uso ou de relatório de falhas.</p>
+            <p><strong>h) Permissões do aparelho</strong></p>
+            <p>O app pode solicitar: microfone (chamadas e áudios), câmera (fotos, vídeos e QR code), fotos e vídeos (anexos), notificações, execução em segundo plano (receber mensagens e chamadas) e exibição sobre outros apps (tela de chamada). Todas são usadas apenas para a função correspondente.</p>
 
             <h3>2. Base legal para tratamento (LGPD)</h3>
             <ul>
                 <li><strong>Mensagens e conta:</strong> execução de contrato (Art. 7, V).</li>
-                <li><strong>Publicidade:</strong> interesse legítimo (Art. 7, IX) com opt-out disponível.</li>
-                <li><strong>Chave PIX:</strong> consentimento do titular (Art. 7, I) — fornecida voluntariamente.</li>
+                <li><strong>Publicidade:</strong> interesse legítimo (Art. 7, IX), com possibilidade de redefinir ou apagar o identificador de publicidade no Android.</li>
+                <li><strong>Chave PIX, CPF, nome completo e data de nascimento:</strong> consentimento do titular (Art. 7, I) e cumprimento de obrigação legal/regulatória (Art. 7, II) — fornecidos voluntariamente ao ativar a monetização, necessários para viabilizar o pagamento e confirmar maioridade.</li>
+                <li><strong>Senha de saque:</strong> execução de contrato (Art. 7, V) — necessária para autorizar cada pedido de saque com segurança.</li>
             </ul>
 
             <h3>3. Compartilhamento de dados</h3>
             <ul>
-                <li><strong>Parceiro de publicidade:</strong> dados de anúncios (GAID, IP, interações) — com opt-out.</li>
-                <li><strong>Conteúdo de mensagens:</strong> NUNCA compartilhado — cifrado ponta a ponta.</li>
+                <li><strong>Redes de publicidade (Google AdMob, Liftoff e Meta Audience Network):</strong> dados de anúncios (GAID, IP, modelo do aparelho, interações).</li>
+                <li><strong>Google (Firebase e Drive) e Microsoft (OneDrive):</strong> processam os dados armazenados em seus serviços, conforme as políticas de cada empresa.</li>
+                <li><strong>Sala Pública:</strong> o que você compartilha na sala fica visível a todos os usuários do Occultum.</li>
+                <li><strong>Stories:</strong> visíveis aos seus contatos (e, se compartilhados, a todos na Sala Pública), sem criptografia ponta a ponta.</li>
+                <li><strong>Conteúdo de mensagens e arquivos das conversas:</strong> nunca compartilhado em claro — cifrado ponta a ponta.</li>
                 <li><strong>Contatos:</strong> armazenados no seu próprio Google Drive (conta pessoal do usuário); não são transferidos a nós nem a terceiros.</li>
-                <li><strong>Chave PIX:</strong> não compartilhada com terceiros.</li>
+                <li><strong>Chave PIX, CPF, nome completo e data de nascimento:</strong> não compartilhados com terceiros — usados só internamente pra processar o pagamento da sua receita.</li>
                 <li>Não vendemos dados pessoais a terceiros.</li>
             </ul>
 
@@ -184,9 +198,12 @@
             <div class="highlight">
                 <strong>Criptografia em múltiplas camadas:</strong><br>
                 • Mensagens no servidor: excluídas automaticamente em 24h<br>
-                • Banco de dados local: cifrado com SQLCipher (AES-256)<br>
-                • Mídia: cifrada com AES-256-GCM antes do upload<br>
-                • Chave PIX: armazenada cifrada localmente
+                • Banco de dados local (dispositivo): cifrado com SQLCipher (AES-256)<br>
+                • Mídia das conversas: cifrada com AES-256-GCM antes do upload, no seu próprio Google Drive<br>
+                • Stories e Sala Pública: <strong>não</strong> são cifrados ponta a ponta<br>
+                • Metadados da mídia (tipo, tamanho): legíveis no Firebase até expirarem<br>
+                • Chave PIX, CPF, nome completo e data de nascimento: armazenados em servidor próprio, com acesso restrito por autenticação<br>
+                • Senha de saque: nunca armazenada em texto puro — só um hash criptográfico (bcrypt) é guardado
             </div>
 
             <h3>5. Seus direitos (LGPD, Art. 18)</h3>
@@ -196,16 +213,20 @@
                 <li>Acessar seus dados</li>
                 <li>Corrigir dados incompletos ou desatualizados</li>
                 <li>Solicitar exclusão de dados pessoais</li>
-                <li>Revogar consentimento para anúncios personalizados</li>
+                <li>Revogar consentimento, quando o tratamento se basear nele (por exemplo, redefinindo o identificador de publicidade no Android ou removendo o acesso do Occultum à sua conta Google ou Microsoft)</li>
                 <li>Portabilidade (quando aplicável)</li>
             </ul>
 
             <h3>6. Retenção de dados</h3>
             <ul>
+                <li><strong>Stories e cartões da Sala Pública:</strong> 24 horas (ou até você apagar). Ao apagar ou expirar um Story, o app remove o arquivo do seu OneDrive; se um moderador remover o cartão, o arquivo permanece no seu OneDrive até o app fazer essa limpeza.</li>
+                <li><strong>Denúncias e banimentos da Sala Pública:</strong> mantidos enquanto necessários para moderação e segurança da plataforma.</li>
+                <li><strong>Metadados de mídia:</strong> excluídos junto com a mensagem, em até 24 a 48 horas.</li>
+                <li><strong>Autorização Microsoft (token) dos Stories:</strong> mantida enquanto você estiver conectado ao OneDrive no Occultum.</li>
                 <li><strong>Mensagens:</strong> 24h no servidor / indefinido no dispositivo até exclusão pelo usuário</li>
                 <li><strong>Contatos:</strong> mantidos no seu Google Drive até você revogar a permissão ou removê-los</li>
                 <li><strong>Dados de ads:</strong> conforme política do parceiro de publicidade</li>
-                <li><strong>Chave PIX:</strong> até remoção pelo usuário ou desinstalação do app</li>
+                <li><strong>Chave PIX, CPF, nome completo, data de nascimento e senha de saque:</strong> mantidos em nosso servidor enquanto a monetização estiver ativa; removidos/anonimizados em até 30 dias após solicitação de exclusão de conta (ver seção "Excluir Conta")</li>
             </ul>
 
             <h3>7. Crianças</h3>
@@ -227,13 +248,13 @@
     <div id="section-terms" class="section-hidden">
         <div class="card">
             <h2>Termos de Uso</h2>
-            <p class="update">Última atualização: 13 de julho de 2026</p>
+            <p class="update">Última atualização: 15 de outubro de 2026</p>
 
             <h3>1. Aceitação</h3>
             <p>Ao usar o Occultum, você concorda com estes termos. Se não concordar, não utilize o aplicativo.</p>
 
             <h3>2. Descrição do serviço</h3>
-            <p>O Occultum é um aplicativo de mensagens com criptografia ponta a ponta e funcionalidade de Stories com anúncios remunerados. O serviço é fornecido "como está", sem garantias de disponibilidade contínua.</p>
+            <p>O Occultum é um aplicativo de mensagens com criptografia ponta a ponta nas conversas privadas e grupos, com Stories com anúncios remunerados e uma Sala Pública aberta a todos os usuários. Stories e Sala Pública não são cifrados ponta a ponta. O serviço é fornecido "como está", sem garantias de disponibilidade contínua.</p>
 
             <h3>3. Conta e responsabilidade</h3>
             <p>Você é responsável pela segurança da sua conta e senha, e por todo conteúdo enviado através da sua conta.</p>
@@ -259,11 +280,11 @@
             <p>Para começar a faturar, ative a opção de <strong>"Story Remunerado"</strong> no aplicativo. Seus créditos acumulados podem ser sacados via PIX para a chave cadastrada. O Occultum <strong>não realiza transações PIX entre usuários</strong> — não é carteira digital nem instituição financeira. O PIX é usado apenas como método de pagamento da plataforma ao usuário.</p>
             <p>Você pode desativar anúncios personalizados nas Configurações.</p>
 
-            <h3>6. Chave PIX</h3>
-            <p>O usuário é responsável por fornecer uma chave PIX válida e de sua titularidade. O Occultum não se responsabiliza por pagamentos enviados a chaves incorretas informadas pelo usuário.</p>
+            <h3>6. Dados para monetização</h3>
+            <p>O usuário é responsável por fornecer uma chave PIX válida e de sua titularidade, além de CPF, nome completo e data de nascimento verídicos. O Occultum não se responsabiliza por pagamentos enviados a chaves incorretas informadas pelo usuário. A monetização exige confirmação de que o usuário tem 18 anos ou mais. A senha de saque criada pelo usuário é pessoal e intransferível; o Occultum não se responsabiliza por saques autorizados com uma senha de saque compartilhada ou vazada pelo próprio usuário.</p>
 
             <h3>7. Conteúdo do usuário</h3>
-            <p>Você retém a propriedade de todo conteúdo que envia. O Occultum não monitora, modera nem armazena permanentemente suas mensagens. A criptografia ponta a ponta impede que tenhamos acesso ao conteúdo.</p>
+            <p>Você retém a propriedade de todo conteúdo que envia. O Occultum não monitora, modera nem armazena permanentemente suas mensagens. A criptografia ponta a ponta das conversas privadas e grupos impede que tenhamos acesso ao conteúdo. Stories e conteúdo compartilhado na Sala Pública não são cifrados e ficam visíveis a quem tiver acesso a eles. Você é responsável pelo que posta e compartilha, e pode denunciar ou bloquear conteúdo de outros usuários dentro do app.</p>
 
             <h3>8. Propriedade intelectual</h3>
             <p>O nome "Occultum", logotipos, design e código-fonte são propriedade de R. Teixeira · Design & Dev. Stickers importados pelo usuário são de responsabilidade do próprio usuário quanto a direitos autorais.</p>
@@ -278,7 +299,7 @@
             </ul>
 
             <h3>10. Encerramento</h3>
-            <p>Reservamo-nos o direito de encerrar contas que violem estes termos.</p>
+            <p>Reservamo-nos o direito de encerrar contas que violem estes termos. Na Sala Pública, o moderador pode remover cartões e banir contas do compartilhamento, sobretudo em caso de conteúdo denunciado que viole o uso aceitável.</p>
 
             <h3>11. Alterações</h3>
             <p>Estes termos podem ser atualizados. O uso continuado após alterações constitui aceitação.</p>
@@ -319,7 +340,11 @@
                 &bull; <strong>Contatos sincronizados no Google Drive</strong>: permanecem na sua própria conta Google até você revogar a permissão de acesso ou apagá-los manualmente<br>
                 &bull; <strong>Conta (email, tag pública, chave pública)</strong>: apagada em até <strong>30 dias</strong> após solicitação por email<br>
                 &bull; <strong>Mensagens em trânsito no servidor</strong>: excluídas automaticamente em até <strong>24 horas</strong>, mesmo sem nenhuma ação do usuário (são efêmeras por design)<br>
-                &bull; <strong>Chave PIX cadastrada</strong>: apagada junto com a conta<br>
+                &bull; <strong>Chave PIX, CPF, nome completo, data de nascimento e senha de saque</strong>: removidos do nosso servidor em até <strong>30 dias</strong> após solicitação de exclusão de conta<br>
+                &bull; <strong>Histórico de saques já processados</strong>: o registro contábil (valor e data) é mantido pelo prazo legal abaixo, mas sem nenhum dado que identifique você (CPF, PIX, nome) — esses campos são apagados junto com a conta<br>
+                &bull; <strong>Stories</strong>: o arquivo está no seu próprio OneDrive e expira em 24h; ao excluir a conta, removemos o vínculo com a sua conta Microsoft e a autorização guardada no nosso servidor. Para revogar também do lado da Microsoft, remova o acesso do Occultum nas configurações da sua conta Microsoft<br>
+                &bull; <strong>Mídia das conversas</strong>: os arquivos cifrados ficam no seu Google Drive e são limpos pelo app; para revogar o acesso, remova o Occultum em myaccount.google.com/permissions<br>
+                &bull; <strong>Sala Pública</strong>: seus cartões são removidos; denúncias e banimentos ligados à conta são apagados com ela, salvo o que for necessário para segurança<br>
                 &bull; <strong>Dados de publicidade</strong> (GAID, IP): retidos conforme a política do parceiro de anúncios, não pelo Occultum
             </div>
 
